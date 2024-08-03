@@ -1,18 +1,62 @@
 .header-bar {
-    height: 10%;
-    background-color: #E2AB2D;
-    color: #ffffff;
+    background-color: #fff !important;
+    color: #003CA6 !important;
+    height: 10% !important;
 }
 
 .header-button {
-    background-color: transparent;
-    border-color: transparent;
-    text-align: center;
-    width: 100%;
-    color: #ffffff;
+    background-color: transparent !important;
+    border-color: transparent !important;
+    text-align: center !important;
+    width: 100% !important;
+    color: #003CA6 !important;
 }
 
 .header-logo {
-    height: 30%;
-    margin: 8px;
+    height: 30px !important;
+}
+
+
+
+/* สำหรับมือถือ */
+@media (max-width: 480px) {
+    .custom-css {
+        font-size: 14px;
+    }
+
+    .col-3 {
+        width: 100%;
+    }
+}
+
+/* สำหรับแท็บเล็ต */
+@media (min-width: 481px) and (max-width: 768px) {
+    .custom-css {
+        font-size: 15px;
+    }
+
+    .col-3 {
+        width: 50%;
+    }
+}
+
+/* สำหรับเดสก์ท็อปขนาดกลาง */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .custom-css {
+        font-size: 16px;
+    }
+}
+
+/* สำหรับเดสก์ท็อปขนาดใหญ่ */
+@media (min-width: 1025px) and (max-width: 1440px) {
+    .custom-css {
+        font-size: 16px;
+    }
+}
+
+/* สำหรับหน้าจอขนาดใหญ่พิเศษ */
+@media (min-width: 1441px) {
+    .custom-css {
+        font-size: 16px;
+    }
 }
