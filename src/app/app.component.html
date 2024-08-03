@@ -86,26 +86,116 @@
         </div>
 
         <div class="row">
-            <div class="col-3" style="background-color: #003CA6;">
-                1
-                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <div class="col-3 footer-bar-detail">
+                <div class="row" style="margin-bottom: 10%;">
+                    <div class="col-121">
+                        <b>ติดต่อเรา</b>
+                    </div>
+                </div>
+                <div class="row" style="margin-bottom: 10%;">
+                    <div class="col-121">
+                        TGC International Company Limited
+                        360 อาคารประเสริฐสุทธิ์ ชั้นที่ 2
+                        ถนนสนามบินน้ำ-นนทบุรี ตำบลบางกระสอ
+                        อำเภอเมืองนนทบุรี จังหวัดนนทบุรี 11000
+                    </div>
+                </div>
+                <div class="row" style="margin-bottom: 10%;">
+                    <div class="col-121">
+                        โทรศัพท์ 02-527-8228<br>
+                        มือถือ 081-542-5544<br>
+                        โทรสาร 0-2967-1372
+                    </div>
+                </div>
+                <div class="row" style="margin-bottom: 10%;">
+                    <div class="col-121">
+                        ip&#64;tgcthailand.com<br>
+                        tgcthailand&#64;gmail.com
+                    </div>
+                </div>
             </div>
-            <div class="col-3" style="background-color: #E2AB2D;">
-                2
+            <div class="col-3 footer-bar-detail">
+                <div class="row" style="margin-bottom: 10%;">
+                    <div class="col-121">
+                        <b>เวลาทำการ</b>
+                    </div>
+                </div>
+                <div class="row" style="margin-bottom: 10%;">
+                    <div class="col-121">
+                        Opening Day:<br>
+                        วันจันทร์ – วันศุกร์: 8am to 6pm<br>
+                        Saturday: 9am to 5pm
+                    </div>
+                </div>
+                <div class="row" style="margin-bottom: 10%;">
+                    <div class="col-121">
+                        Vacation:<br>
+                        All Sunday Day<br>
+                        All Vacation Holiday
+                    </div>
+                </div>
             </div>
-            <div class="col-3" style="background-color: #743559;">
-                3
+            <div class="col-3 footer-bar-detail">
+                <div class="row" style="margin-bottom: 10%;">
+                    <div class="col-121">
+                        <b>บริการของเรา
+                        </b>
+                    </div>
+                </div>
+                <div class="row" style="margin-bottom: 10%;">
+                    <div class="col-121">
+                        รับจดเครื่องหมายการค้า<br>
+                        รับว่าความ รับจ้างเป็นทนายความ<br>
+                        รับขึ้นทะเบียนและจดบัญชีนวัตกรรมไทย<br>
+                        รับจดสิทธิบัตร<br>
+                        รับจดเครื่องหมายการค้าต่างประเทศ<br>
+                        รับจดทะเบียนและขอใบอนุญาต มอก. สมอ.<br>
+                        รับจดลิขสิทธิ์<br>
+                        รับจดสิทธิบัตรต่างประเทศ<br>
+                        รับจดทะเบียนและขอใบอนุญาต อย.<br>
+                    </div>
+                </div>
             </div>
-            <div class="col-3" style="background-color: #33e22d;">
-                4
+            <div class="col-3 footer-bar-detail">
+                <div class="row" style="margin-bottom: 10%;">
+                    <div class="col-121">
+                        <b>our attorneys
+                        </b>
+                    </div>
+                </div>
+                <div class="row" style="margin-bottom: 10%;">
+                    <div class="col-121">
+                        จิรโรจน์ สีสรรพ์<br>
+                        เอกราช สุชาติวัฒนะ<br>
+                        ชรินรัตน์ เชี่ยวชาญผล<br>
+                        สมชาย วงศ์สุริยศักดิ์
+                    </div>
+                </div>
+                <div class="row" style="margin-bottom: 10%;">
+                    <div class="col-121">
+                        <b>เพิ่มเราเป็นเพื่อน Line: &#64;tgcthailand
+                        </b>
+                    </div>
+                </div>
+                <div class="row" style="margin-bottom: 10%;">
+                    <div class="col-121">
+                        <img mat-card-image src="assets/images/line-button.png" style="width: 50%;">
+                    </div>
+                </div>
             </div>
         </div>
+
         <div class="row">
-            <div class="col-12 custom-css footer-bar">
+            <div class="col-12 custom-css footer-bar" style="background-color: #01235e;">
                 2023 TGC International Co., Ltd.<br>
                 All rights reserved.
             </div>
         </div>
 
     </mat-drawer-container>
+
+    
+<button *ngIf="showButton" (click)="scrollToTop()" class="scroll-to-top-btn">
+    Top
+</button>
 </div>

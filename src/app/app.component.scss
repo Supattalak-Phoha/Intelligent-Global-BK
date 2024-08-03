@@ -34,6 +34,45 @@
     margin: 5px 5px 0px 5px;
 }
 
+/* Scroll to Top Button Style */
+.scroll-to-top-btn {
+    position: fixed;
+    bottom: 20px;
+    /* Distance from the bottom of the viewport */
+    right: 20px;
+    /* Distance from the right side of the viewport */
+    background-color: #007bff;
+    /* Button background color */
+    color: #fff;
+    /* Button text color */
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    display: none;
+    /* Initially hidden */
+    font-size: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: opacity 0.3s ease;
+    /* Smooth transition */
+}
+
+.scroll-to-top-btn:hover {
+    background-color: #0056b3;
+    /* Darker color on hover */
+}
+
+.scroll-to-top-btn:focus {
+    outline: none;
+    /* Remove default focus outline */
+}
+
+.footer-bar-detail {
+    background-color: #003CA6;
+    color: #fff;
+    padding: 3%;
+}
+
 /* สำหรับมือถือ */
 @media (max-width: 480px) {
     .header-logo-center {
@@ -61,6 +100,12 @@
         font-size: 16px;
         align-items: center;
         display: grid;
+    }
+
+    .footer-bar-detail {
+        background-color: #003CA6;
+        color: #fff;
+        padding: 10%;
     }
 }
 
@@ -90,6 +135,12 @@
         font-size: 16px;
         align-items: center;
         display: grid;
+    }
+
+    .footer-bar-detail {
+        background-color: #003CA6;
+        color: #fff;
+        padding: 5%;
     }
 
     .mat-drawer-content {
@@ -123,6 +174,12 @@
         font-size: 16px;
         align-items: center;
         display: grid;
+    }
+
+    .footer-bar-detail {
+        background-color: #003CA6;
+        color: #fff;
+        padding: 5%;
     }
 
     .mat-drawer-content {

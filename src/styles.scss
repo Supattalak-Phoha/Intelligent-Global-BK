@@ -10,6 +10,31 @@ body {
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+.image-container {
+    position: relative;
+    display: inline-block;
+}
+
+.image-container img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 80px;
+    text-align: center;
+    padding: 10px;
+    background-color: transparent;
+    border-radius: 5px;
+}
+
+
 /* สำหรับมือถือ */
 @media (max-width: 480px) {
     .col-3 {
@@ -60,9 +85,7 @@ body {
 }
 
 /* สำหรับเดสก์ท็อปขนาดใหญ่ */
-@media (min-width: 1025px) and (max-width: 1440px) {
-}
+@media (min-width: 1025px) and (max-width: 1440px) {}
 
 /* สำหรับหน้าจอขนาดใหญ่พิเศษ */
-@media (min-width: 1441px) {
-}
+@media (min-width: 1441px) {}
