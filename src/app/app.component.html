@@ -17,7 +17,7 @@
                 </button>
             </div>
             <div class="col-1" style="display: grid;"
-                [ngClass]="{ 'header-button-active': currentPage === 'services' }">
+                [ngClass]="{ 'header-button-active': currentPage === 'services' || currentPage === 'fda' }">
                 <button class="header-button" [matMenuTriggerFor]="menu">
                     บริการของเรา
                 </button>
@@ -193,9 +193,5 @@
         </div>
 
     </mat-drawer-container>
-
-    
-<button *ngIf="showButton" (click)="scrollToTop()" class="scroll-to-top-btn">
-    Top
-</button>
 </div>
+<app-scroll-to-top></app-scroll-to-top>

@@ -1,5 +1,5 @@
 import { Component, HostListener } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +12,21 @@ export class AppComponent {
   constructor(private router: Router) { }
 
   ngOnInit() {
-    // alert(this.router.url)
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        if(['/'].includes(event.urlAfterRedirects)) {
+          this.currentPage = ""
+        } else if(['/about-us'].includes(event.urlAfterRedirects)) {
+          this.currentPage = "about-us"
+        } else if(['/services', '/fda'].includes(event.urlAfterRedirects)) {
+          this.currentPage = "services"
+        } else if(['/contact-us'].includes(event.urlAfterRedirects)) {
+          this.currentPage = "contact-us"
+        } else {
+          this.currentPage = ""
+        }
+      }
+    });
   }
 
   showPage(page: string) {

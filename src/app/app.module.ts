@@ -14,6 +14,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { AllServicesComponent } from './services/all-services/all-services.component';
+import { ScrollToTopComponent } from './scroll-to-top/scroll-to-top.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { AllServicesComponent } from './services/all-services/all-services.compo
     FdaComponent,
     AboutUsComponent,
     FdaComponent,
-    AllServicesComponent
+    AllServicesComponent,
+    ScrollToTopComponent
   ],
   imports: [
     BrowserModule,
