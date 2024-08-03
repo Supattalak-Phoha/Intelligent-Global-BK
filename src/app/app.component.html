@@ -1,14 +1,44 @@
 <!-- app.component.html -->
 <div class="row">
-    <div class="col-6">Intelligent Glogal</div>
-    <div class="col-6"><mat-tab-group>
-            <mat-tab label="หน้าเเรก"> หน้าเเรก </mat-tab>
-            <mat-tab label="เกี่ยวกับเรา"> เกี่ยวกับเรา </mat-tab>
-            <mat-tab label="บริการ"> บริการ </mat-tab>
-            <mat-tab label="ติดต่อเรา"> ติดต่อเรา </mat-tab>
-        </mat-tab-group>
+    <div class="col-8">Intelligent Glogal</div>
+    <div class="col-1">
+        <button class="header-button" (click)="showPage('')">
+            หน้าเเรก
+        </button>
+    </div>
+    <div class="col-1">
+        <button class="header-button" (click)="showPage('about-us')">
+            เกี่ยวกับเรา
+        </button>
+    </div>
+    <div class="col-1">
+        <button class="header-button" [matMenuTriggerFor]="menu">
+            บริการ
+        </button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="showPage('fda')">
+                <span>อย.</span>
+            </button>
+            <button mat-menu-item>
+                <span>มอก</span>
+            </button>
+            <button mat-menu-item>
+                <span>นวัตกรรม</span>
+            </button>
+            <button mat-menu-item>
+                <span>กรมทรัพสินทางปัญญา</span>
+            </button>
+            <button mat-menu-item>
+                <span>บาร์โค้ด</span>
+            </button>
+        </mat-menu>
+    </div>
+    <div class="col-1">
+        <button class="header-button" (click)="showPage('contact-us')">
+            ติดต่อเรา
+        </button>
     </div>
 </div>
-<div>
+<div class="row">
     <router-outlet></router-outlet>
 </div>
