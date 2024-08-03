@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class DataService {
 
-  private apiUrl = 'data.json'; // เส้นทางไปยังไฟล์ JSON
+  private apiUrl = 'assets/data/data.json'; // เส้นทางไปยังไฟล์ JSON
 
   constructor(private http: HttpClient) { }
 

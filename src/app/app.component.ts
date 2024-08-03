@@ -7,7 +7,6 @@ import { Router } from '@angular/router';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'intelligent-global';
   currentPage: any = 'home'
 
   constructor(private router: Router) {}
