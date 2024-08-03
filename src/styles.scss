@@ -1,4 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: 'Mitr-Light';
+    src: url('../public/assets/fonts/Mitr-Light.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 
 html,
 body {
@@ -7,7 +13,7 @@ body {
 
 body {
     margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-family: "Mitr-Light", Roboto, "Helvetica Neue", sans-serif !important;
 }
 
 .image-container {
@@ -73,7 +79,7 @@ body {
     .col-6 {
         width: 100%;
     }
-    
+
     .overlay-text {
         font-size: 30px !important;
     }
