@@ -1,5 +1,5 @@
 <div class="image-container">
-    <img src="assets/images/services-001.jpg" alt="Sample Image">
+    <img src="assets/images/services-001.jpg" alt="Sample Image" [class.loaded]="isImageLoaded01" (load)="onImageLoad('isImageLoaded01')">
     <div class="overlay-text" style="font-size: 20px;">บริการของเรา</div>
 </div>
 

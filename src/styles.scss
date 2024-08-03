@@ -43,6 +43,23 @@ body {
     padding-top: 35px;
 }
 
+.image-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+    /* Transition effect for fade-in */
+}
+
+.image-container img.loaded {
+    opacity: 1;
+}
+
 /* สำหรับมือถือ */
 @media (max-width: 480px) {
     .col-3 {

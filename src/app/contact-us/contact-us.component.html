@@ -1,5 +1,5 @@
 <div class="image-container">
-    <img src="assets/images/contact-us-001.jpg" alt="Sample Image">
+    <img src="assets/images/contact-us-001.jpg" alt="Sample Image" [class.loaded]="isImageLoaded01" (load)="onImageLoad('isImageLoaded01')">
     <div class="overlay-text">ติดต่อเรา</div>
 </div>
 
@@ -9,19 +9,25 @@
             <mat-card class="example-card" appearance="outlined" style="margin-bottom: 5%;">
                 <mat-card-content>
                     <div class="row">
-                        <div class="col-4" style="text-align: center; padding: 5%;">
+                        <div class="col-4" style="text-align: center; padding: 2%;">
+                            <img src="assets/images/home-002.png" class="header-logo" alt="Intellegent Global"
+                                style="width: 20%;"><br><br>
                             <b>Call Us Now!</b><br>
                             โทรศัพท์ 02-527-8228<br>
                             มือถือ 081-542-5544<br>
                             24/7 Availabe
                         </div>
-                        <div class="col-4" style="text-align: center; padding: 5%;">
+                        <div class="col-4" style="text-align: center; padding: 2%;">
+                            <img src="assets/images/home-002.png" class="header-logo" alt="Intellegent Global"
+                                style="width: 20%;"><br><br>
                             <b>Send Us Message!</b><br>
                             ip&#64;tgcthailand.com<br>
                             tgcthailand&#64;gmail.com<br>
                             24/7 Availabe
                         </div>
-                        <div class="col-4" style="text-align: center; padding: 5%;">
+                        <div class="col-4" style="text-align: center; padding: 2%;">
+                            <img src="assets/images/home-002.png" class="header-logo" alt="Intellegent Global"
+                                style="width: 20%;"><br><br>
                             <b>ที่ตั้ง</b><br>
                             360 อาคารประเสริฐสุทธิ์ ชั้นที่ 2 ถนนสนามบินน้ำ-นนทบุรี<br>
                             ตำบลบางกระสอ อำเภอเมืองนนทบุรี จังหวัดนนทบุรี 11000<br>

@@ -48,4 +48,11 @@ export class AllServicesComponent {
       description: "บริการรับจดทะเบียนเครื่องหมายการค้า เครื่องหมายร่วม จดลิขสิทธิ์โลโก้ จดแบรนด์ ในประเทศไทย"
     }
   ]
+  isImageLoaded01 = false;
+  
+  onImageLoad(picture: string) {
+    if (picture === 'isImageLoaded01') {
+      this.isImageLoaded01 = true;
+    }
+  }
 }

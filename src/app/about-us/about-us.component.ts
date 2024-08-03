@@ -29,8 +29,14 @@ export class AboutUsComponent {
       note: "การศึกษา : ( ศศ.บ.) เชี่ยวชาญงานบัญชี การเงิน บุคคล การจัดการเอกสารภายในบริษัท"
     }
   ]
+  isImageLoaded01 = false;
 
   constructor(private router: Router) {}
 
+  onImageLoad(picture: string) {
+    if (picture === 'isImageLoaded01') {
+      this.isImageLoaded01 = true;
+    }
+  }
   
 }
