@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 export class AppComponent {
   currentPage: any = ''
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
   ngOnInit() {
     // alert(this.router.url)
@@ -30,5 +30,9 @@ export class AppComponent {
 
   scrollToTop(): void {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  addLINE() {
+    window.open('https://line.me/ti/p/-2IMXhkbVt', '_blank', 'noopener,noreferrer');
   }
 }
