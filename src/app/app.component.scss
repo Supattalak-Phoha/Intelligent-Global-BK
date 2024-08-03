@@ -45,10 +45,6 @@
         font-size: 14px;
     }
 
-    .col-3 {
-        width: 100%;
-    }
-
     .isMobile {
         display: flex !important;
     }
@@ -72,18 +68,6 @@
 @media (min-width: 481px) and (max-width: 768px) {
     .custom-css {
         font-size: 15px;
-    }
-
-    .col-1 {
-        width: 12.5%;
-    }
-
-    .col-3 {
-        width: 50%;
-    }
-
-    .col-8 {
-        width: 50%;
     }
 
     .isMobile {
@@ -117,18 +101,6 @@
 @media (min-width: 769px) and (max-width: 1024px) {
     .custom-css {
         font-size: 16px;
-    }
-
-    .col-1 {
-        width: 12.5%;
-    }
-
-    .col-3 {
-        width: 50%;
-    }
-
-    .col-8 {
-        width: 50%;
     }
 
     .isMobile {
@@ -173,7 +145,7 @@
     }
 
     .header-logo {
-        margin-left: 1% !important;
+        margin-left: 3% !important;
     }
 
     .footer-bar {
@@ -206,7 +178,7 @@
     }
 
     .header-logo {
-        margin-left: 1% !important;
+        margin-left: 3% !important;
     }
 
     .footer-bar {

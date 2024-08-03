@@ -9,3 +9,60 @@ body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+/* สำหรับมือถือ */
+@media (max-width: 480px) {
+    .col-3 {
+        width: 100%;
+    }
+
+    .col-4 {
+        width: 100%;
+    }
+}
+
+/* สำหรับแท็บเล็ต */
+@media (min-width: 481px) and (max-width: 768px) {
+    .col-1 {
+        width: 12.5%;
+    }
+
+    .col-3 {
+        width: 50%;
+    }
+
+    .col-4 {
+        width: 50%;
+    }
+
+    .col-8 {
+        width: 50%;
+    }
+}
+
+/* สำหรับเดสก์ท็อปขนาดกลาง */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .col-1 {
+        width: 12.5%;
+    }
+
+    .col-3 {
+        width: 50%;
+    }
+
+    .col-4 {
+        width: 50%;
+    }
+
+    .col-8 {
+        width: 50%;
+    }
+}
+
+/* สำหรับเดสก์ท็อปขนาดใหญ่ */
+@media (min-width: 1025px) and (max-width: 1440px) {
+}
+
+/* สำหรับหน้าจอขนาดใหญ่พิเศษ */
+@media (min-width: 1441px) {
+}

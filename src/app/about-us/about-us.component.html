@@ -1,1 +1,22 @@
-<p>about-us works!</p>
+<img src="assets/images/about-us-001.jpg" style="width: 100%;">
+
+<div style="padding: 5% 5% 5% 5%;">
+    <div class="row">
+        <div class="col-4" *ngFor="let r of data">
+            <mat-card class="example-card" appearance="outlined" style="margin-bottom: 5%;">
+                <mat-card-header>
+                    <div mat-card-avatar class="example-header-image"></div>
+                    <mat-card-title>{{ r.name || "" }}</mat-card-title>
+                    <mat-card-subtitle>{{ r.position || "" }}</mat-card-subtitle>
+                </mat-card-header>
+                <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+                    alt="Photo of a Shiba Inu">
+                <mat-card-content>
+                    <br>
+                    <p>{{ r.note || "" }}</p>
+                    <br>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>

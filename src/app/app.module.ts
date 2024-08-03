@@ -12,6 +12,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { FdaComponent } from './services/fda/fda.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatTabsModule,
     MatMenuModule,
     MatSidenavModule,
-    MatIconModule
+    MatIconModule,
+    MatCardModule
   ],
   providers: [
     provideAnimationsAsync()

@@ -10,7 +10,11 @@ export class AppComponent {
   currentPage: any = ''
 
   constructor(private router: Router) {}
-  
+
+  ngOnInit() {
+    // alert(this.router.url)
+  }
+
   showPage(page: string) {
     this.currentPage = page
     this.router.navigate(['/' + page]);
