@@ -9,19 +9,19 @@
             <mat-card class="example-card" appearance="outlined" style="margin-bottom: 5%;">
                 <mat-card-content>
                     <div class="row">
-                        <div class="col-4" style="text-align: center;">
+                        <div class="col-4" style="text-align: center; padding: 5%;">
                             <b>Call Us Now!</b><br>
                             โทรศัพท์ 02-527-8228<br>
                             มือถือ 081-542-5544<br>
                             24/7 Availabe
                         </div>
-                        <div class="col-4" style="text-align: center;">
+                        <div class="col-4" style="text-align: center; padding: 5%;">
                             <b>Send Us Message!</b><br>
                             ip&#64;tgcthailand.com<br>
                             tgcthailand&#64;gmail.com<br>
                             24/7 Availabe
                         </div>
-                        <div class="col-4" style="text-align: center;">
+                        <div class="col-4" style="text-align: center; padding: 5%;">
                             <b>ที่ตั้ง</b><br>
                             360 อาคารประเสริฐสุทธิ์ ชั้นที่ 2 ถนนสนามบินน้ำ-นนทบุรี<br>
                             ตำบลบางกระสอ อำเภอเมืองนนทบุรี จังหวัดนนทบุรี 11000<br>
@@ -35,7 +35,12 @@
     </div>
 
     <div class="row">
-        <div class="col-6"></div>
-        <div class="col-6"></div>
+        <div class="col-6">
+            <img mat-card-image src="assets/images/contact-us-002.jpg" style="width: 100%;" (click)="openMap()">
+        </div>
+        <div class="col-6">
+            <img mat-card-image src="assets/images/map.png" style="width: 100%;" (click)="openMap()">
+            <!-- <app-map></app-map> -->
+        </div>
     </div>
 </div>

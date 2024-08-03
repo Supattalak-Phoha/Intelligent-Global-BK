@@ -4,7 +4,7 @@ import { DataService } from '../data.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+  styleUrls: ['./home.component.scss', './../../styles.scss']
 })
 export class HomeComponent {
   data: any[] = [];

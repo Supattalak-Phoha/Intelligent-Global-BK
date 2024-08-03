@@ -34,6 +34,14 @@ body {
     border-radius: 5px;
 }
 
+.topic-bar {
+    height: 90px;
+    background-color: #01235e;
+    text-align: center;
+    color: #ffffff;
+    font-size: 30px;
+    padding-top: 35px;
+}
 
 /* สำหรับมือถือ */
 @media (max-width: 480px) {
@@ -43,6 +51,20 @@ body {
 
     .col-4 {
         width: 100%;
+    }
+
+    .col-6 {
+        width: 100%;
+    }
+    
+    .overlay-text {
+        font-size: 30px !important;
+    }
+
+    .topic-bar {
+        height: 65px;
+        font-size: 25px;
+        padding-top: 25px;
     }
 }
 
@@ -57,6 +79,10 @@ body {
     }
 
     .col-4 {
+        width: 50%;
+    }
+
+    .col-6 {
         width: 50%;
     }
 
@@ -78,6 +104,11 @@ body {
     .col-4 {
         width: 50%;
     }
+
+    .col-6 {
+        width: 50%;
+    }
+
 
     .col-8 {
         width: 50%;

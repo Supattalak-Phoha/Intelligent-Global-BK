@@ -1,0 +1,20 @@
+<div class="image-container">
+    <img src="assets/images/services-001.jpg" alt="Sample Image">
+    <div class="overlay-text" style="font-size: 20px;">บริการของเรา</div>
+</div>
+
+<div style="padding: 5% 5% 5% 5%;">
+    <div class="row">
+        <div class="col-4" *ngFor="let r of data">
+            <mat-card class="example-card" appearance="outlined" style="margin-bottom: 5%;">
+                <mat-card-header>
+                    <div mat-card-avatar class="example-header-image"></div>
+                    <mat-card-title>{{ r.name || "" }}</mat-card-title>
+                    <mat-card-subtitle>{{ r.position || "" }}</mat-card-subtitle>
+                </mat-card-header>
+                <img mat-card-image src="assets/images/services-002.jpg"
+                    alt="Photo of a Shiba Inu">
+            </mat-card>
+        </div>
+    </div>
+</div>

@@ -19,7 +19,7 @@
             <div class="col-1" style="display: grid;"
                 [ngClass]="{ 'header-button-active': currentPage === 'services' }">
                 <button class="header-button" [matMenuTriggerFor]="menu">
-                    บริการ
+                    บริการของเรา
                 </button>
                 <mat-menu #menu="matMenu">
                     <button mat-menu-item (click)="showPage('fda')">
@@ -72,7 +72,7 @@
                         <span>เกี่ยวกับเรา</span>
                     </button>
                     <button class="side-button" (click)="drawer.toggle(); showPage('services')">
-                        <span>บริการ</span>
+                        <span>บริการของเรา</span>
                     </button>
                     <button class="side-button" (click)="drawer.toggle(); showPage('contact-us')">
                         <span>ติดต่อเรา</span>

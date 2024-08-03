@@ -13,6 +13,7 @@ import { FdaComponent } from './services/fda/fda.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
+import { AllServicesComponent } from './services/all-services/all-services.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { MatCardModule } from '@angular/material/card';
     ContactUsComponent,
     FdaComponent,
     AboutUsComponent,
-    FdaComponent
+    FdaComponent,
+    AllServicesComponent
   ],
   imports: [
     BrowserModule,
