@@ -7,11 +7,12 @@ import { Router } from '@angular/router';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  currentPage: any = 'home'
+  currentPage: any = ''
 
   constructor(private router: Router) {}
   
   showPage(page: string) {
+    this.currentPage = page
     this.router.navigate(['/' + page]);
   }
 }

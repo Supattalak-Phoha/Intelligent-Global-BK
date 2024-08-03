@@ -10,6 +10,8 @@ import { MatTabsModule } from '@angular/material/tabs';
 import {MatMenuModule} from '@angular/material/menu';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { FdaComponent } from './services/fda/fda.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { FdaComponent } from './services/fda/fda.component';
     AppRoutingModule,
     HttpClientModule,
     MatTabsModule,
-    MatMenuModule
+    MatMenuModule,
+    MatSidenavModule,
+    MatIconModule
   ],
   providers: [
     provideAnimationsAsync()

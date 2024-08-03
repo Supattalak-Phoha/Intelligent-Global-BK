@@ -1,70 +1,111 @@
 <!-- app.component.html -->
-<div style="max-width: 100% !important; width: 100;">
-    <div class="row header-bar">
-        <div class="col-8">
-            <img src="assets/images/logo.png" class="header-logo" alt="Intellegent Global">
+<div>
+    <div class="row header-bar" style="width: 100%;">
+        <div class="isNotMobile">
+            <div class="col-8">
+                <img src="assets/images/logo-01.png" class="header-logo" alt="Intellegent Global">
+            </div>
+            <div class="col-1" style="display: grid;" [ngClass]="{ 'header-button-active': currentPage === '' }">
+                <button class="header-button" (click)="showPage('')">
+                    หน้าเเรก
+                </button>
+            </div>
+            <div class="col-1" style="display: grid;"
+                [ngClass]="{ 'header-button-active': currentPage === 'about-us' }">
+                <button class="header-button" (click)="showPage('about-us')">
+                    เกี่ยวกับเรา
+                </button>
+            </div>
+            <div class="col-1" style="display: grid;"
+                [ngClass]="{ 'header-button-active': currentPage === 'services' }">
+                <button class="header-button" [matMenuTriggerFor]="menu">
+                    บริการ
+                </button>
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item (click)="showPage('fda')">
+                        <span>อย.</span>
+                    </button>
+                    <button mat-menu-item>
+                        <span>มอก</span>
+                    </button>
+                    <button mat-menu-item>
+                        <span>นวัตกรรม</span>
+                    </button>
+                    <button mat-menu-item>
+                        <span>กรมทรัพสินทางปัญญา</span>
+                    </button>
+                    <button mat-menu-item>
+                        <span>บาร์โค้ด</span>
+                    </button>
+                </mat-menu>
+            </div>
+            <div class="col-1" style="display: grid;"
+                [ngClass]="{ 'header-button-active': currentPage === 'contact-us' }">
+                <button class="header-button" (click)="showPage('contact-us')">
+                    ติดต่อเรา
+                </button>
+            </div>
         </div>
-        <div class="col-1">
-            <button class="header-button" (click)="showPage('')">
-                หน้าเเรก
-            </button>
-        </div>
-        <div class="col-1">
-            <button class="header-button" (click)="showPage('about-us')">
-                เกี่ยวกับเรา
-            </button>
-        </div>
-        <div class="col-1">
-            <button class="header-button" [matMenuTriggerFor]="menu">
-                บริการ
-            </button>
-            <mat-menu #menu="matMenu">
-                <button mat-menu-item (click)="showPage('fda')">
-                    <span>อย.</span>
-                </button>
-                <button mat-menu-item>
-                    <span>มอก</span>
-                </button>
-                <button mat-menu-item>
-                    <span>นวัตกรรม</span>
-                </button>
-                <button mat-menu-item>
-                    <span>กรมทรัพสินทางปัญญา</span>
-                </button>
-                <button mat-menu-item>
-                    <span>บาร์โค้ด</span>
-                </button>
-            </mat-menu>
-        </div>
-        <div class="col-1">
-            <button class="header-button" (click)="showPage('contact-us')">
-                ติดต่อเรา
-            </button>
+        <div class="isMobile">
+            <div class="col-12 header-logo-center">
+                <!-- <span>
+                    <button mat-icon-button class="example-icon isMobile" (click)="drawer.toggle()" style="border-color: transparent;">
+                        <mat-icon>menu</mat-icon>
+                    </button>
+                </span> -->
+                <span>
+                    <img src="assets/images/logo-01.png" class="header-logo" alt="Intellegent Global"
+                        (click)="drawer.toggle()">
+                </span>
+            </div>
         </div>
     </div>
-    <div class="row">
-        <router-outlet></router-outlet>
-    </div>
-    <div class="row">
-        <div class="col-3" style="background-color: #003CA6;">
-            1
-            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+    <mat-drawer-container autosize>
+        <mat-drawer #drawer mode="side">
+            <div class="row">
+                <div class="col-12" style="display: inline-grid;">
+                    <button class="side-button" (click)="drawer.toggle(); showPage('')">
+                        <span>หน้าเเรก</span>
+                    </button>
+                    <button class="side-button" (click)="drawer.toggle(); showPage('about-us')">
+                        <span>เกี่ยวกับเรา</span>
+                    </button>
+                    <button class="side-button" (click)="drawer.toggle(); showPage('services')">
+                        <span>บริการ</span>
+                    </button>
+                    <button class="side-button" (click)="drawer.toggle(); showPage('contact-us')">
+                        <span>ติดต่อเรา</span>
+                    </button>
+                </div>
+            </div>
+        </mat-drawer>
+
+        <div class="row" style="padding: 20px;">
+            <router-outlet></router-outlet>
         </div>
-        <div class="col-3" style="background-color: #E2AB2D;">
-            2
+
+        <div class="row">
+            <div class="col-3" style="background-color: #003CA6;">
+                1
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            </div>
+            <div class="col-3" style="background-color: #E2AB2D;">
+                2
+            </div>
+            <div class="col-3" style="background-color: #743559;">
+                3
+            </div>
+            <div class="col-3" style="background-color: #33e22d;">
+                4
+            </div>
         </div>
-        <div class="col-3" style="background-color: #743559;">
-            3
+        <div class="row">
+            <div class="col-12 custom-css footer-bar">
+                2023 TGC International Co., Ltd.<br>
+                All rights reserved.
+            </div>
         </div>
-        <div class="col-3" style="background-color: #33e22d;">
-            4
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-12 custom-css"
-            style="padding: 2% 0px; background-color: #003CA6; text-align: center; color: #fff;">
-            2023 TGC International Co., Ltd.<br>
-            All rights reserved.
-        </div>
-    </div>
+
+    </mat-drawer-container>
 </div>
