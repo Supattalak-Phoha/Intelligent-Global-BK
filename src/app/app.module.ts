@@ -9,7 +9,6 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { MatTabsModule } from '@angular/material/tabs';
 import {MatMenuModule} from '@angular/material/menu';
 import { AboutUsComponent } from './about-us/about-us.component';
-import { FdaComponent } from './services/fda/fda.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
@@ -17,19 +16,22 @@ import { AllServicesComponent } from './services/all-services/all-services.compo
 import { ScrollToTopComponent } from './scroll-to-top/scroll-to-top.component';
 import { EditComponent } from './edit/edit.component';
 import { LoginComponent } from './login/login.component';
+import { ServiceDetailComponent } from './services/service-detail/service-detail.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ContactUsComponent,
-    FdaComponent,
     AboutUsComponent,
-    FdaComponent,
     AllServicesComponent,
     ScrollToTopComponent,
     EditComponent,
-    LoginComponent
+    LoginComponent,
+    ServiceDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +41,10 @@ import { LoginComponent } from './login/login.component';
     MatMenuModule,
     MatSidenavModule,
     MatIconModule,
-    MatCardModule
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule, 
+    MatButtonModule
   ],
   providers: [
     provideAnimationsAsync()

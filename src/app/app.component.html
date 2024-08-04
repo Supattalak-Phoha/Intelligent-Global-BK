@@ -1,5 +1,5 @@
 <!-- app.component.html -->
-<div>
+<div *ngIf="!isLoginPage">
     <div class="row header-bar" style="width: 100%;">
         <div class="isNotMobile">
             <div class="col-8">
@@ -17,15 +17,15 @@
                 </button>
             </div>
             <div class="col-1" style="display: grid;"
-                [ngClass]="{ 'header-button-active': currentPage === 'services' || currentPage === 'fda' }">
+                [ngClass]="{ 'header-button-active': currentPage === 'services' || currentPage === 'service-detail' }">
                 <button class="header-button" [matMenuTriggerFor]="menu">
                     บริการของเรา
                 </button>
                 <mat-menu #menu="matMenu">
-                    <button mat-menu-item (click)="showPage('fda')">
+                    <button mat-menu-item (click)="showPage('service-detail/fda')">
                         <span>อย.</span>
                     </button>
-                    <button mat-menu-item>
+                    <button mat-menu-item (click)="showPage('service-detail/mok')">
                         <span>มอก</span>
                     </button>
                     <button mat-menu-item>
@@ -195,3 +195,39 @@
     </mat-drawer-container>
 </div>
 <app-scroll-to-top></app-scroll-to-top>
+
+<div *ngIf="isLoginPage" class="login">
+    <br><br><br><br><br><br><br>
+    <div class="row" style="text-align: center;">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <img src="assets/images/logo-01.png" class="header-logo" alt="Intellegent Global" style="height: 100%;">
+        </div>
+        <div class="col-4"></div>
+    </div>
+    <br>
+    <div class="row" style="text-align: center;">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <mat-form-field appearance="outline" style="width: 80%;">
+                <mat-label>Username</mat-label>
+                <input matInput>
+            </mat-form-field>
+        </div>
+        <div class="col-4"></div>
+    </div>
+    <div class="row" style="text-align: center;">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <mat-form-field appearance="outline" style="width: 80%;">
+                <mat-label>Password</mat-label>
+                <input matInput [type]="hide() ? 'password' : 'text'" />
+                <button mat-icon-button matSuffix (click)="clickEvent($event)" [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="hide()">
+                    <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </mat-form-field>
+        </div>
+        <div class="col-4"></div>
+    </div>
+</div>

@@ -1,6 +1,6 @@
 <div class="image-container">
     <img src="assets/images/services-001.jpg" alt="Sample Image" [class.loaded]="isImageLoaded01" (load)="onImageLoad('isImageLoaded01')">
-    <div class="overlay-text" style="font-size: 20px;">สํานักงานคณะกรรมการอาหารและยา <br>(Food and Drug Administration)</div>
+    <div class="overlay-text" style="font-size: 20px;">{{ code }}</div>
 </div>
 
 <div style="padding: 5% 5% 5% 5%;">
@@ -9,7 +9,7 @@
             <img mat-card-image src="assets/images/about-us-003.jpg" style="width: 100%;">
         </div>
         <div class="col-6">
-            <b>สํานักงานคณะกรรมการอาหารและยา</b>
+            <b>{{ code }}</b>
             <br><br>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;บริษัท ทีจีซี อินเตอร์เนชั่นแนล จำกัด ก่อตั้งโดย นายจิรโรจน์ สีสรรพ์ ทนายความที่ได้รับใบอนุญาตมากว่า 20 ปี
             ได้มีประสบการณ์การจดเครื่องหมายการค้า จดสิทธิบัตร จดลิขสิทธิ์ จดแบรนด์ จดลิขสิทธิ์โลโก้
