@@ -34,8 +34,6 @@ export class AppComponent {
 
         if (['/login'].includes(event.urlAfterRedirects)) {
           this.isLoginPage = true
-          sessionStorage.setItem('isAdmin', 'true');
-          sessionStorage.setItem('name', 'Supattalak');
         } else if (['/'].includes(event.urlAfterRedirects)) {
           this.currentPage = ""
         } else if (['/about-us'].includes(event.urlAfterRedirects)) {
@@ -79,12 +77,15 @@ export class AppComponent {
       (response: any) => {
         if (response?.id && response?.username) {
           this.isLoginPage = false
+          sessionStorage.setItem('isAdmin', 'true');
+          sessionStorage.setItem('username', response?.username);
           this.router.navigate(['']);
         }
         else {
           this.isLoginPage = true
           this.loginError = "กรุณาตรวจสอบ Username และ Password อีกครั้ง"
           this.password = ""
+          sessionStorage.clear();
         }
       },
       (error: any) => {
