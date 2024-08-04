@@ -19,6 +19,7 @@ import { ServiceDetailComponent } from './services/service-detail/service-detail
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { MatButtonModule } from '@angular/material/button';
     MatCardModule,
     MatFormFieldModule,
     MatInputModule, 
-    MatButtonModule
+    MatButtonModule,
+    FormsModule 
   ],
   providers: [
     provideAnimationsAsync()

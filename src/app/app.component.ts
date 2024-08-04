@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, HostListener, signal } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
+import { DataService } from './data.service';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,9 @@ import { NavigationEnd, Router } from '@angular/router';
 })
 export class AppComponent {
   isLoginPage: boolean = false
+  loginError: string = ""
+  username: string = ""
+  password: string = ""
   currentPage: any = ''
   hide = signal(true);
   clickEvent(event: MouseEvent) {
@@ -15,15 +19,13 @@ export class AppComponent {
     event.stopPropagation();
   }
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+    private dataService: DataService
+  ) { }
 
   ngOnInit() {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
-
-
-
-
         //#region Support Service Detail
         if ((event.urlAfterRedirects).indexOf("/service-detail") !== -1) {
           event.urlAfterRedirects = "/service-detail"
@@ -73,8 +75,23 @@ export class AppComponent {
   }
 
   login() {
-    this.isLoginPage = false
-    this.router.navigate(['']);
+    this.dataService.login(this.username, this.password).then(
+      (response: any) => {
+        if (response?.id && response?.username) {
+          this.isLoginPage = false
+          this.router.navigate(['']);
+        }
+        else {
+          this.isLoginPage = true
+          this.loginError = "กรุณาตรวจสอบ Username และ Password อีกครั้ง"
+          this.password = ""
+        }
+      },
+      (error: any) => {
+        console.error('Error fetching data', error);
+      }
+    );
+
   }
 
   showEditButton() {

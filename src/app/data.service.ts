@@ -6,12 +6,17 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class DataService {
-
-  private apiUrl = 'assets/data/data.json'; // เส้นทางไปยังไฟล์ JSON
-
   constructor(private http: HttpClient) { }
 
   getData(): Observable<any> {
-    return this.http.get<any>(this.apiUrl);
+    const apiUrl = 'assets/data/data.json'; // เส้นทางไปยังไฟล์ JSON
+    return this.http.get<any>(apiUrl);
+  }
+
+  async login(username: string, password: string) {
+    const apiUrl = 'assets/data/users.json'; // เส้นทางไปยังไฟล์ JSON
+    const users: any[] = await this.http.get<any>(apiUrl)?.toPromise();
+    const user: any = users?.find?.(x => x.username === username && x.password === password)
+    return user
   }
 }
