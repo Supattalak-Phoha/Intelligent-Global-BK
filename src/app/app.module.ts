@@ -15,6 +15,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { AllServicesComponent } from './services/all-services/all-services.component';
 import { ScrollToTopComponent } from './scroll-to-top/scroll-to-top.component';
+import { EditComponent } from './edit/edit.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { ScrollToTopComponent } from './scroll-to-top/scroll-to-top.component';
     AboutUsComponent,
     FdaComponent,
     AllServicesComponent,
-    ScrollToTopComponent
+    ScrollToTopComponent,
+    EditComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
