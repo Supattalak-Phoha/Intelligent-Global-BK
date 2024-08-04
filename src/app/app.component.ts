@@ -23,6 +23,7 @@ export class AppComponent {
     private dataService: DataService
   ) { }
 
+  
   ngOnInit() {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {

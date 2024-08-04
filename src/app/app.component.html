@@ -4,7 +4,8 @@
         <div class="isNotMobile">
             <div class="col-8">
                 <img src="assets/images/logo-01.png" class="header-logo" alt="Intellegent Global">
-                <button *ngIf="showEditButton()" class="edit-button" (click)="showPage('edit')" [ngClass]="{ 'header-button-active': currentPage === 'edit' }">
+                <button *ngIf="showEditButton()" class="edit-button" (click)="showPage('edit')"
+                    [ngClass]="{ 'header-button-active': currentPage === 'edit' }">
                     จัดการข้อมูล
                 </button>
             </div>
