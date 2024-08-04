@@ -4,6 +4,9 @@
         <div class="isNotMobile">
             <div class="col-8">
                 <img src="assets/images/logo-01.png" class="header-logo" alt="Intellegent Global">
+                <button *ngIf="showEditButton()" class="edit-button" (click)="showPage('edit')" [ngClass]="{ 'header-button-active': currentPage === 'edit' }">
+                    จัดการข้อมูล
+                </button>
             </div>
             <div class="col-1" style="display: grid;" [ngClass]="{ 'header-button-active': currentPage === '' }">
                 <button class="header-button" (click)="showPage('')">
@@ -227,6 +230,15 @@
                     <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </button>
             </mat-form-field>
+        </div>
+        <div class="col-4"></div>
+    </div>
+    <div class="row" style="text-align: center;">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <button class="login-button" (click)="login()">
+                <span>Login</span>
+            </button>
         </div>
         <div class="col-4"></div>
     </div>

@@ -14,7 +14,7 @@ export class AppComponent {
     this.hide.set(!this.hide());
     event.stopPropagation();
   }
-  
+
   constructor(private router: Router) { }
 
   ngOnInit() {
@@ -32,6 +32,8 @@ export class AppComponent {
 
         if (['/login'].includes(event.urlAfterRedirects)) {
           this.isLoginPage = true
+          sessionStorage.setItem('isAdmin', 'true');
+          sessionStorage.setItem('name', 'Supattalak');
         } else if (['/'].includes(event.urlAfterRedirects)) {
           this.currentPage = ""
         } else if (['/about-us'].includes(event.urlAfterRedirects)) {
@@ -40,6 +42,8 @@ export class AppComponent {
           this.currentPage = "services"
         } else if (['/contact-us'].includes(event.urlAfterRedirects)) {
           this.currentPage = "contact-us"
+        } else if (['/edit'].includes(event.urlAfterRedirects)) {
+          this.currentPage = "edit"
         } else {
           this.currentPage = ""
         }
@@ -66,5 +70,15 @@ export class AppComponent {
 
   addLINE() {
     window.open('https://line.me/ti/p/~i-coke', '_blank', 'noopener,noreferrer');
+  }
+
+  login() {
+    this.isLoginPage = false
+    this.router.navigate(['']);
+  }
+
+  showEditButton() {
+    const isAdmin = sessionStorage.getItem('isAdmin');
+    return isAdmin?.toString().toLowerCase() === 'true';
   }
 }

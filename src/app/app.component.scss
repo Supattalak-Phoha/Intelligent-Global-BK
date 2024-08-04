@@ -7,6 +7,15 @@
     background-size: cover;
 }
 
+.login-button {
+    background-color: #003CA6 !important;
+    border-color: transparent !important;
+    color: #fff !important;
+    height: 45px;
+    width: 80%;
+    border-radius: 5px;
+}
+
 .header-bar {
     background-color: #fff !important;
     color: #003CA6 !important;
@@ -20,6 +29,16 @@
     border-color: transparent !important;
     color: #003CA6 !important;
 }
+
+.edit-button {
+    background-color: transparent;
+    border-color: transparent;
+    color: #003CA6;
+    float: right;
+    height: 100%;
+    width: 15%;
+}
+
 
 .header-logo {
     height: 50px !important;

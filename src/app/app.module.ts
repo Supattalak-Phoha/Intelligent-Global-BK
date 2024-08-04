@@ -15,7 +15,6 @@ import { MatCardModule } from '@angular/material/card';
 import { AllServicesComponent } from './services/all-services/all-services.component';
 import { ScrollToTopComponent } from './scroll-to-top/scroll-to-top.component';
 import { EditComponent } from './edit/edit.component';
-import { LoginComponent } from './login/login.component';
 import { ServiceDetailComponent } from './services/service-detail/service-detail.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -30,7 +29,6 @@ import { MatButtonModule } from '@angular/material/button';
     AllServicesComponent,
     ScrollToTopComponent,
     EditComponent,
-    LoginComponent,
     ServiceDetailComponent
   ],
   imports: [
