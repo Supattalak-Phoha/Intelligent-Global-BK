@@ -47,6 +47,6 @@ export class AppComponent {
   }
 
   addLINE() {
-    window.open('https://line.me/ti/p/-2IMXhkbVt', '_blank', 'noopener,noreferrer');
+    window.open('https://line.me/ti/p/-2lMXhkbVt', '_blank', 'noopener,noreferrer');
   }
 }
