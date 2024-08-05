@@ -23,8 +23,10 @@ export class AppComponent {
     private dataService: DataService
   ) { }
 
-  
+
   ngOnInit() {
+
+    this.getData();
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         //#region Support Service Detail
@@ -99,5 +101,33 @@ export class AppComponent {
   showEditButton() {
     const isAdmin = sessionStorage.getItem('isAdmin');
     return isAdmin?.toString().toLowerCase() === 'true';
+  }
+
+
+  ///////////////////////////////////////////////////////
+
+  data: any[] = [];
+  getData() {
+    this.dataService.getData().subscribe((response) => {
+      this.data = response;
+    });
+  }
+
+  addData(newData: any) {
+    this.dataService.addData(newData).subscribe(() => {
+      this.getData();
+    });
+  }
+
+  updateData(id: number, updatedData: any) {
+    this.dataService.updateData(id, updatedData).subscribe(() => {
+      this.getData();
+    });
+  }
+
+  deleteData(id: number) {
+    this.dataService.deleteData(id).subscribe(() => {
+      this.getData();
+    });
   }
 }

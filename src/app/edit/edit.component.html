@@ -37,12 +37,12 @@
 <div>
     <h1>Data List</h1>
     <ul>
-      <li *ngFor="let item of data">
-        {{ item.name }}
-        <button (click)="deleteData(item.id)">Delete</button>
-        <!-- Add update functionality as needed -->
-      </li>
+        <li *ngFor="let item of data">
+            {{ item.name }}
+            <button (click)="deleteData(item.id)">Delete</button>
+            <!-- Add update functionality as needed -->
+        </li>
     </ul>
-  
+
     <button (click)="addData({ id: 5, name: 'New Data' })">Add Data</button>
-  </div>
+</div>
