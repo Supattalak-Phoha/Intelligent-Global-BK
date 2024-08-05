@@ -4,11 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --configuration production",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "prebuild": "cd serve && npm run build",
-    "postinstall": "ng build --configuration production"
+    "build": "ng build --configuration production"
   },
   "private": true,
   "dependencies": {
