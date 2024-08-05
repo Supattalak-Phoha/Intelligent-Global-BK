@@ -14,10 +14,11 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '../dist/intelligent-global/browser')));
 
 const dataFilePath = path.join(__dirname, '../dist/intelligent-global/browser/assets/data/data.json');
+const dataFilePathDB = path.join(__dirname, '../public/assets/data/data.json');
 
 // API Endpoints
 app.get('/api/data', (req, res) => {
-    fs.readFile(dataFilePath, 'utf8', (err, data) => {
+    fs.readFile(dataFilePathDB, 'utf8', (err, data) => {
         if (err) {
             return res.status(500).send('Error reading data');
         }
@@ -26,22 +27,25 @@ app.get('/api/data', (req, res) => {
 });
 
 app.post('/api/data', (req, res) => {
-    console.log("=================", dataFilePath)
     fs.readFile(dataFilePath, 'utf8', (err, data) => {
         if (err) {
-            console.log("=================", err)
             return res.status(500).send('Error reading data');
         }
         const jsonData = JSON.parse(data);
         jsonData.push(req.body);
-        console.log("=================", jsonData)
         fs.writeFile(dataFilePath, JSON.stringify(jsonData, null, 2), (err) => {
             if (err) {
-                console.log("=================", err)
                 return res.status(500).send('Error writing data');
             }
-            console.log("=================1")
+            console.log("================= Dist =================")
             res.status(201).send('Data added');
+        });
+
+        fs.writeFile(dataFilePathDB, JSON.stringify(jsonData, null, 2), (err) => {
+            if (err) {
+                return res.status(500).send('Error writing data');
+            }
+            console.log("================= DB =================")
         });
     });
 });
