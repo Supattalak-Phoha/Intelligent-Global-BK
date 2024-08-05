@@ -11,9 +11,18 @@
             <button (click)="addData({ id: 5, name: 'New Data' })">Add Data</button>
         </div>
     </div>
+    <br>
     <div class="row">
-        <div class="col-6"></div>
-        <div class="col-6"></div>
+        <div class="col-6">
+            <div class="NgxEditor__Wrapper" >
+                <ngx-editor-menu [editor]="editor" [toolbar]="toolbar"> </ngx-editor-menu>
+                <ngx-editor [editor]="editor" [ngModel]="html" [disabled]="false"
+                    [placeholder]="'Type here...'"></ngx-editor>
+            </div>
+        </div>
+        <div class="col-6">
+            {{html}}
+        </div>
     </div>
     <div class="row">
         <div class="col-6"></div>
