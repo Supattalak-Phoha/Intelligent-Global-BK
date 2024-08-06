@@ -90,9 +90,9 @@ app.post('/api/data', (req, res) => {
                         }
                     );
 
-                    console.log('File uploaded successfully');
+                    console.log('update data successfully');
                 } catch (error) {
-                    console.error('Error uploading file');
+                    console.error('update data file');
                 }
             };
 
