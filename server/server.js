@@ -3,7 +3,8 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const fs = require('fs');
 const path = require('path');
-
+const axios = require('axios');
+require('dotenv').config();
 const app = express();
 const port = process.env.PORT || 3000;
 
@@ -39,10 +40,8 @@ app.post('/api/data', (req, res) => {
             }
             console.log("================= Dist =================")
 
-            const axios = require('axios');
-            const fs = require('fs');
-            const path = require('path');
-            require('dotenv').config();
+            
+            
             const GITHUB_TOKEN = process.env.GITHUB_TOKEN; // Replace with your GitHub token
             console.log("=================", GITHUB_TOKEN)
             const REPO_OWNER = 'Supattalak-Phoha';
@@ -145,6 +144,48 @@ app.delete('/api/data/:id', (req, res) => {
             if (err) {
                 return res.status(500).send('Error writing data');
             }
+
+            const GITHUB_TOKEN = process.env.GITHUB_TOKEN; // Replace with your GitHub token
+            console.log("=================", GITHUB_TOKEN)
+            const REPO_OWNER = 'Supattalak-Phoha';
+            const REPO_NAME = 'Intelligent-Global'; // Your repository name
+            const COMMIT_MESSAGE = 'Delete Data';
+            const TARGET_PATH = 'public/assets/data/data.json'; // Directory in the repository
+
+            const deleteFileFromGitHub = async () => {
+                try {
+                    // Get the SHA of the file
+                    const fileUrl = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${TARGET_PATH}`;
+                    const response = await axios.get(fileUrl, {
+                        headers: {
+                            Authorization: `token ${GITHUB_TOKEN}`,
+                            'Accept': 'application/vnd.github.v3+json',
+                        },
+                    });
+
+                    const sha = response.data.sha;
+
+                    // Delete the file
+                    await axios.delete(fileUrl, {
+                        headers: {
+                            Authorization: `token ${GITHUB_TOKEN}`,
+                            'Accept': 'application/vnd.github.v3+json',
+                        },
+                        data: {
+                            message: COMMIT_MESSAGE,
+                            sha: sha,
+                        },
+                    });
+
+                    console.log('File deleted successfully');
+
+                } catch (error) {
+                    console.error('Error deleting file', error);
+                }
+            };
+
+            deleteFileFromGitHub();
+
             res.send('Data deleted');
         });
     });
