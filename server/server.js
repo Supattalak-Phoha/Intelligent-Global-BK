@@ -42,8 +42,9 @@ app.post('/api/data', (req, res) => {
             const axios = require('axios');
             const fs = require('fs');
             const path = require('path');
-
-            const GITHUB_TOKEN = ''; // Replace with your GitHub token
+            require('dotenv').config();
+            const GITHUB_TOKEN = process.env.GITHUB_TOKEN; // Replace with your GitHub token
+            console.log("=================", GITHUB_TOKEN)
             const REPO_OWNER = 'Supattalak-Phoha';
             const REPO_NAME = 'Intelligent-Global'; // Your repository name
             const FILE_PATH = dataFilePath; // Local file path you want to upload
