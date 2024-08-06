@@ -40,8 +40,8 @@ app.post('/api/data', (req, res) => {
             }
             console.log("================= Dist =================")
 
-            
-            
+
+
             const GITHUB_TOKEN = process.env.GITHUB_TOKEN; // Replace with your GitHub token
             console.log("=================", GITHUB_TOKEN)
             const REPO_OWNER = 'Supattalak-Phoha';
@@ -254,6 +254,109 @@ app.post('/api/upload', (req, res) => {
 });
 
 
+
+
+
+const multer = require('multer');
+// Set up multer for file storage
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, '../public/assets/images/'); // Specify the upload directory
+    },
+    filename: (req, file, cb) => {
+        cb(null, Date.now() + path.extname(file.originalname)); // Rename file with timestamp
+    }
+});
+
+const upload = multer({ storage: storage });
+
+// Create the uploads directory if it does not exist
+const uploadDir = '../public/assets/images';
+if (!fs.existsSync(uploadDir)) {
+    fs.mkdirSync(uploadDir);
+}
+
+
+app.post('/api/data/uploadFile', upload.single('file'), (req, res) => {
+    console.log('===================');
+
+    // Log file information
+    console.log('File:', req.file); // Contains details about the uploaded file
+    console.log('Original Filename:', req.file.originalname);
+    console.log('Filename:', req.file.filename);
+    console.log('Mimetype:', req.file.mimetype);
+    console.log('Size:', req.file.size);
+
+    // Log additional form data
+    console.log('Body:', req.body); // Contains other form data (if any)
+
+
+
+
+    const GITHUB_TOKEN = process.env.GITHUB_TOKEN; // Replace with your GitHub token
+    console.log("=================", GITHUB_TOKEN)
+    const REPO_OWNER = 'Supattalak-Phoha';
+    const REPO_NAME = 'Intelligent-Global'; // Your repository name
+    const FILE_PATH = '../public/assets/images/'; // Local file path you want to upload
+    const COMMIT_MESSAGE = 'Update File';
+    const TARGET_PATH = 'public/assets/images'; // Directory in the repository
+
+    const uploadFileToGitHub = async () => {
+        try {
+            const fileName = path.basename(FILE_PATH + req.file.filename);
+            console.log("------------------", fileName)
+            const fileContent = fs.readFileSync(FILE_PATH + req.file.filename, { encoding: 'base64' });
+            const fileUrl = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${TARGET_PATH}/${fileName}`;
+
+            // Check if the file already exists
+            let sha = null;
+            try {
+                const response = await axios.get(fileUrl, {
+                    headers: {
+                        Authorization: `token ${GITHUB_TOKEN}`,
+                    },
+                });
+                sha = response.data.sha;
+            } catch (error) {
+                if (error.response && error.response.status === 404) {
+                    // File does not exist
+                    sha = null;
+                } else {
+                    throw error;
+                }
+            }
+
+            // Upload or update the file
+            const response = await axios.put(
+                fileUrl,
+                {
+                    message: COMMIT_MESSAGE,
+                    content: fileContent,
+                    sha: sha, // Include sha if updating an existing file
+                },
+                {
+                    headers: {
+                        Authorization: `token ${GITHUB_TOKEN}`,
+                        'Content-Type': 'application/json',
+                    },
+                }
+            );
+
+            console.log('File uploaded successfully');
+
+            // Respond to client
+            res.send('File uploaded successfully');
+        } catch (error) {
+            console.error('Error uploading file');
+            return res.status(500).send('Error writing data');
+        }
+    };
+
+    uploadFileToGitHub();
+
+
+});
+
 // ส่งไฟล์ index.html เมื่อเข้าถึง URL ที่ไม่ใช่ API
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../dist/intelligent-global/browser/index.html'));
@@ -262,3 +365,4 @@ app.get('*', (req, res) => {
 app.listen(port, () => {
     console.log(`Server running on http://localhost:${port}`);
 });
+

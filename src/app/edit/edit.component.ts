@@ -3,6 +3,7 @@ import { DataService } from '../data.service';
 import { Router } from '@angular/router';
 import { Editor, Toolbar, Validators } from 'ngx-editor';
 import { FormControl, FormGroup } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-edit',
@@ -24,7 +25,8 @@ export class EditComponent implements OnInit, OnDestroy {
   ];
   
   constructor(private router: Router,
-    private dataService: DataService
+    private dataService: DataService,
+    private http: HttpClient
   ) { }
 
   ngOnInit() {
@@ -58,5 +60,23 @@ export class EditComponent implements OnInit, OnDestroy {
     this.dataService.deleteData(id).subscribe(() => {
       this.getData();
     });
+  }
+
+  selectedFile: File | null = null;
+  onFileChange(event: any) {
+    this.selectedFile = event.target.files[0] as File;
+  }
+
+  onSubmit() {
+    if (this.selectedFile) {
+      // const formData = new FormData();
+      // formData.append('file', this.selectedFile, this.selectedFile.name);
+      this.dataService.uploadFile(this.selectedFile).subscribe(response => {
+        console.log('Upload successful', response);
+      }, error => {
+        console.error('Upload error', error);
+      });
+    
+    }
   }
 }

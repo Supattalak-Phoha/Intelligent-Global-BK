@@ -14,7 +14,7 @@
     <br>
     <div class="row">
         <div class="col-6">
-            <div class="NgxEditor__Wrapper" >
+            <div class="NgxEditor__Wrapper">
                 <ngx-editor-menu [editor]="editor" [toolbar]="toolbar"> </ngx-editor-menu>
                 <ngx-editor [editor]="editor" [ngModel]="html" [disabled]="false"
                     [placeholder]="'Type here...'"></ngx-editor>
@@ -25,6 +25,15 @@
         </div>
     </div>
     <div class="row">
+        <div class="col-6">
+            <form (ngSubmit)="onSubmit()" #fileUploadForm="ngForm" enctype="multipart/form-data">
+                <input type="file" (change)="onFileChange($event)" />
+                <button type="submit">Upload</button>
+            </form>
+        </div>
+        <div class="col-6"></div>
+    </div>
+    <div class="row">
         <div class="col-6"></div>
         <div class="col-6"></div>
     </div>
@@ -36,8 +45,6 @@
         <div class="col-6"></div>
         <div class="col-6"></div>
     </div>
-    <div class="row">
-        <div class="col-6"></div>
-        <div class="col-6"></div>
-    </div>
+
+
 </div>
