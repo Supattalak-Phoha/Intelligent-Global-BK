@@ -262,10 +262,15 @@ const multer = require('multer');
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, '../public/assets/images/'); // Specify the upload directory
+        cb(null, '../dist/intelligent-global/browser/assets/images/'); // เพื่อให้เปลี่บยนใน folder build ด้วย
     },
     filename: (req, file, cb) => {
-        cb(null, Date.now() + path.extname(file.originalname)); // Rename file with timestamp
+        // cb(null, Date.now() + path.extname(file.originalname)); // Rename file with timestamp
+        cb(null, 'about-us-002' + path.extname(file.originalname)); // Rename file with timestamp
     }
+
+
+    
 });
 
 const upload = multer({ storage: storage });
