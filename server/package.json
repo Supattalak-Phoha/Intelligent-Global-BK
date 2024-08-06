@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build": "cd .. &&  ng build --configuration production"
+    "start": "cd .. &&  ng build --configuration production && node index.js"
   },
   "keywords": [],
   "author": "",
