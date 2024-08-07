@@ -97,6 +97,57 @@ app.post('/api/data', (req, res) => {
             };
 
             uploadFileToGitHub();
+
+
+
+const TARGET_PATH2 = 'dist/intelligent-global/browser/assets/data'; // Directory in the repository
+          const uploadFileToGitHub2 = async () => {
+                try {
+                    const fileName = path.basename(FILE_PATH);
+                    const fileContent = fs.readFileSync(FILE_PATH, { encoding: 'base64' });
+                    const fileUrl = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${TARGET_PATH2}/${fileName}`;
+
+                    // Check if the file already exists
+                    let sha = null;
+                    try {
+                        const response = await axios.get(fileUrl, {
+                            headers: {
+                                Authorization: `token ${GITHUB_TOKEN}`,
+                            },
+                        });
+                        sha = response.data.sha;
+                    } catch (error) {
+                        if (error.response && error.response.status === 404) {
+                            // File does not exist
+                            sha = null;
+                        } else {
+                            throw error;
+                        }
+                    }
+
+                    // Upload or update the file
+                    const response = await axios.put(
+                        fileUrl,
+                        {
+                            message: COMMIT_MESSAGE,
+                            content: fileContent,
+                            sha: sha, // Include sha if updating an existing file
+                        },
+                        {
+                            headers: {
+                                Authorization: `token ${GITHUB_TOKEN}`,
+                                'Content-Type': 'application/json',
+                            },
+                        }
+                    );
+
+                    console.log('update data successfully');
+                } catch (error) {
+                    console.error('update data file');
+                }
+            };
+
+            uploadFileToGitHub2();
             res.status(201).send('Data added');
         });
 
