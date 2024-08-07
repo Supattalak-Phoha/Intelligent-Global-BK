@@ -1,6 +1,3 @@
-# This workflow will run tests using node and then publish a package to GitHub Packages when a release is created
-# For more information see: https://docs.github.com/en/actions/publishing-packages/publishing-nodejs-packages
-
 name: Build Angular App
 
 on:
@@ -17,7 +14,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          
+
       - run: npm install
       - run: npm run build
 
@@ -26,11 +23,24 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
         run: |
+          # Configure Git
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
+          
+          # Clone the gh-pages branch
           git clone --branch gh-pages https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/Supattalak-Phoha/Intelligent-Global gh-pages
+          
+          # Sync files from dist to the gh-pages branch
           rsync -av --delete dist/intelligent-global/ gh-pages/
+          
+          # Change to the gh-pages directory
           cd gh-pages
-          git add .
-          git commit -m "Deploy to GitHub Pages"
-          git push
+          
+          # Check if there are changes to commit
+          if [ -n "$(git status --porcelain)" ]; then
+            git add .
+            git commit -m "Deploy to GitHub Pages"
+            git push
+          else
+            echo "No changes to deploy."
+          fi
